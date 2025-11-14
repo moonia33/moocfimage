@@ -10,7 +10,7 @@ class Moocfimage extends Module
     {
         $this->name = 'moocfimage';
         $this->tab = 'administration';
-        $this->version = '1.0.0';
+        $this->version = '1.0.1';
         $this->author = 'moonia';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = [

@@ -2,7 +2,7 @@
 <module>
     <name>moocfimage</name>
     <displayName>Cloudflare Image Optimization</displayName>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>Prepina PrestaShop paveikslėlių URL per Cloudflare /cdn-cgi/image transformacijas.</description>
     <author>moonia</author>
     <tab>administration</tab>
