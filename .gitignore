@@ -1,0 +1,13 @@
+# Build artifacts
+/dist/
+/package/
+*.zip
+
+# Node/Composer (if added later)
+/node_modules/
+/vendor/
+
+# OS/IDE
+.DS_Store
+.idea/
+.vscode/

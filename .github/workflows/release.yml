@@ -1,0 +1,43 @@
+name: Release ZIP
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare dist
+        run: |
+          set -e
+          VERSION="${GITHUB_REF_NAME#v}"
+          mkdir -p dist package
+          rsync -a ./ package/moocfimage/ \
+            --exclude ".git" \
+            --exclude ".gitignore" \
+            --exclude ".gitattributes" \
+            --exclude ".github" \
+            --exclude "dist" \
+            --exclude "package" \
+            --exclude "node_modules" \
+            --exclude "vendor" \
+            --exclude "*.zip"
+          cd package
+          zip -rq ../dist/moocfimage-${VERSION}.zip moocfimage
+          zip -rq ../dist/moocfimage.zip moocfimage
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            dist/moocfimage.zip
+            dist/moocfimage-*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
