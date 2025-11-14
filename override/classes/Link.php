@@ -38,11 +38,18 @@ class Link extends LinkCore
         }
         if (!$width) {
             $fallbackMap = array(
-                'home_default'  => 320,
-                'cart_default'  => 80,
-                'small_default' => 98,
-                'medium_default'=> 452,
+                'home_default'  => 600,
+                'cart_default'  => 60,
+                'small_default' => 200,
+                'medium_default'=> 658,
                 'large_default' => 800,
+                'default_xs'  => 120,
+                'default_s'  => 162,
+                'default_m' => 210,
+                'default_md'=> 450,
+                'default_xl' => 666,
+                'product_main'  => 800,
+                'product_main_2x'  => 800,
             );
             if ($type && isset($fallbackMap[$type])) {
                 $width = (int) $fallbackMap[$type];
